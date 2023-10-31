@@ -2,13 +2,17 @@ const express = require("express");
 const routes = express.Router();
 const app = express();
 
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //testing
 routes.post('/login',(req,res)=>{
 
 
-    const phone = req.query.phone;
-    const password = req.query.password;
+    const phone = req.body.phone;
+    const password = req.body.password;
 
     //this is testing
     if(phone == "0715359668" && password == "password"){
